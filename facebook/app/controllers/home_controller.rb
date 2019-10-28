@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:new, :create]
   # GET /posts
   # GET /posts.json
