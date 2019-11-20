@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:new, :create]
+  before_action :authenticate_user!
 
   # GET /posts
   # GET /posts.json
@@ -77,16 +77,5 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
       @creator = User.find(@post.user_id)
       redirect_to(root_url) unless current_user?(@creator)
-    end
-
-    def require_login
-      unless logged_in?
-        flash[:error] = "You must be logged in to access this section"
-        redirect_to login_url
-      end
-    end
-
-    def logged_in?
-      !current_user.nil?
     end
 end
