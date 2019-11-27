@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
@@ -10,7 +12,7 @@ RSpec.describe Post, type: :model do
     end
   end
   context 'Validations' do
-    subject { Post.create}
+    subject { Post.create }
     let(:event_creator) { User.new(first_name: 'event_creator', last_name: 'last_name_creator', email: 'email@example.com', password: 'anything') }
     it 'returns true if the form successfully achieves all the validations' do
       subject.content = 'Anything'

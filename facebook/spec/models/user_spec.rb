@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -13,8 +15,8 @@ RSpec.describe User, type: :model do
   context 'Validations' do
     subject { User.create }
     it 'returns true if the form successfully achieves all the validations' do
-        subject.first_name = 'Anything'
-        subject.last_name = 'Anythinglastname'
+      subject.first_name = 'Anything'
+      subject.last_name = 'Anythinglastname'
       subject.email = 'Anything@example.com'
       subject.password = 'anything'
       expect(subject).to be_valid

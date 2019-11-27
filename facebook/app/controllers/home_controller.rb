@@ -9,12 +9,11 @@ class HomeController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
-  def show
+  def show 
   end
 
   # GET /posts/new
   def new
-
     @post = Post.new
   end
 
@@ -63,13 +62,14 @@ class HomeController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:title, :body, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:title, :body, :user_id)
+  end
 end
