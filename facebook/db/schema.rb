@@ -13,27 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_11_11_103212) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "adminpack"
   enable_extension "plpgsql"
-
-  create_table "friend_requests", force: :cascade do |t|
-    t.bigint "requester_id"
-    t.bigint "requestee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["requestee_id", "requester_id"], name: "index_friend_requests_on_requestee_id_and_requester_id", unique: true
-    t.index ["requestee_id"], name: "index_friend_requests_on_requestee_id"
-    t.index ["requester_id"], name: "index_friend_requests_on_requester_id"
-  end
-
-  create_table "friendships", force: :cascade do |t|
-    t.integer "requester_id"
-    t.integer "requestee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["requestee_id", "requester_id"], name: "index_friendships_on_requestee_id_and_requester_id", unique: true
-    t.index ["requester_id"], name: "index_friendships_on_requester_id"
-  end
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
