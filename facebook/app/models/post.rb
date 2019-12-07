@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
-    belongs_to :user 
-    validates :title, presence:true
-    validates :body, presence:true, length: {maximum: 240}
+  belongs_to :author, class_name: 'User', foreign_key: :user_id
+  default_scope { order(created_at: :desc) }
+  validates :content, presence: true
 end
